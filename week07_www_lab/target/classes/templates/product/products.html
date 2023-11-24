@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>List Product</title>
+    <style>
+        th{
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        td{
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">List Product</h2>
+    <table width="100%"  border="1px">
+        <thead>
+        <tr content="center" align="center">
+        <td>id</td>
+        <td>name</td>
+        <td>manufacturer</td>
+        <td>unit</td>
+        <td>status</td>
+<!--        <td>price</td>-->
+<!--        <td>img</td>-->
+        <td>desc</td>
+        <td colspan="3">Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e :${products}">
+        <th th:text="${e.getProduct_id()}"></th>
+        <th th:text="${e.getName()}"></th>
+        <th th:text="${e.getManufacturer()}"></th>
+        <th th:text="${e.getUnit()}"></th>
+        <th th:text="${e.getStatus()}"></th>
+<!--        <th th:text="${e.getProductPrices().get(e.getProductPrices().size()-1).getPrice()}"></th>-->
+<!--        <th th:text="${e.getProductImageList().get(e.getProductImageList().size()-1).getPath()}"></th>-->
+        <th th:text="${e.getDescription()}"></th>
+        <th >
+            <a class="btn btn-primary" th:href="@{/products/productDetail/{id}(id=${e.getProduct_id()})}">View Detail</a>
+        </th>
+        <th>
+            <a class="btn btn-success" th:href="@{/products/update/{id}(id=${e.getProduct_id()})}">Update</a>
+        </th>
+        <th>
+            <a class="btn btn-warning" th:href="@{/products/delete/{id}(id=${e.getProduct_id()})}">delete</a>
+        </th>
+
+    </tr>
+    </tbody>
+</table>
+<div th:each="i: ${#numbers.sequence(0, pageSize - 1)}" style="display: inline-block">
+    <a th:text="${i + 1}" th:href="@{/product(pageNumber = ${i})}"></a>
+</div>
+</div>
+</body>
+</html>

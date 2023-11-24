@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Product detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        th{
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        td{
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1 class="text-center">
+    Product Detail
+</h1>
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Product ID: </label>
+            <span th:text="${product.getProduct_id()}" ></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Name Product: </label>
+            <span th:text="${product.getName()}" ></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Manufacturer: </label>
+            <span th:text="${product.getManufacturer()}" ></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Unit: </label>
+            <span th:text="${product.getUnit()}" ></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Status: </label>
+            <span th:text="${product.getStatus()}" ></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description: </label>
+            <span th:text="${product.getDescription()}" ></span>
+        </div>
+        <h3>INFOR PRICE</h3>
+        <table>
+            <tr>
+                <td>DATE TIME</td>
+                <td>NOTE</td>
+                <td>Price</td>
+            </tr>
+            <tr th:each=" e:${product.getProductPrices()}">
+                <td th:text="${e.getPrice_date_time()}"></td>
+                <td th:text="${e.getNote()}"></td>
+                <td th:text="${e.getPrice()}"></td>
+            </tr>
+        </table>
+        <hr>
+        <h3>INFOR IMAGE</h3>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>PATH</td>
+                <td>ALT</td>
+            </tr>
+            <tr th:each=" e:${product.getProductImageList()}">
+                <td th:text="${e.getImage_id()}"></td>
+                <td th:text="${e.getPath()}"></td>
+                <td th:text="${e.getAlternative()}"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
