@@ -1,5 +1,4 @@
 # week07_www_lab
-# www_lab_week1
 ## I. Yêu cầu bài tập
   Một công ty cần viết một ứng dụng web cho công việc bán hàng của họ. Thông tin cần lưu trữ bao gồm:
 - employee (emp_id, full_name, dob, email, phone, address, status)
