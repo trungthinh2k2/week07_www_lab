@@ -33,7 +33,7 @@ o Thống kê order theo nhân viên bán hàng trong 1 khoảng thời gian.
  ![ListProduct](https://github.com/trungthinh2k2/week07_www_lab/assets/89030667/c6012f00-124a-4819-85ff-cc405c0bd654)
   ### 3. Xem chi tiết 1 product
   ![ViewDetail](https://github.com/trungthinh2k2/week07_www_lab/assets/89030667/84a73942-e463-4603-a52b-eac7095687f7)
-  ### Cập nhật product
+  ### 4. Cập nhật product
   ![Update](https://github.com/trungthinh2k2/week07_www_lab/assets/89030667/99d8c356-2046-4834-b0c2-b47fb20fe224)
 ## II. Những hạn chế chưa làm được
   ### 1. Chưa tạo được giỏ hàng
